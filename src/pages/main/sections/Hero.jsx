@@ -1,8 +1,11 @@
 import React from 'react'
+import { motion, useScroll } from 'framer-motion'
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { CiCirclePlus } from 'react-icons/ci';
 
 const Hero = () => {
+    const { scrollYProgress } = useScroll()
+
     return (
         <div className='relative z-10 flex flex-col items-center justify-center w-full h-screen px-5 text-white pt-26 lg:flex-row lg:px-36'>
             <h1 className='absolute lg:text-[15rem] text-[5rem] lg:top-[15%] top-[29%] left-[10%] font-black opacity-20 z-0'>MOUSE</h1>
@@ -22,7 +25,10 @@ const Hero = () => {
                     </div>
                     <div className='text-sm font-semibold *:cursor-pointer gap-2 mt-20 md:mt-0'>
                         <span className='flex gap-1 text-xs place-items-center'> <CiCirclePlus size={'25px'} /> ADD TO CART</span>
-                        <h3 className='text-xs underline md:text-[17px] hover:text-blue-400'>MORE DETAILS</h3>
+                        <motion.h3
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className='text-xs underline md:text-[17px] hover:text-blue-400'>MORE DETAILS</motion.h3>
                     </div>
                 </div>
             </div>
@@ -30,14 +36,18 @@ const Hero = () => {
 
             {/* RIGHT SIDE */}
             <div className='relative z-10 flex flex-col items-center justify-end w-full lg:w-1/2 h-9/12 gap-y-5'>
-                <img
-                    animate={{ y: [-200, 0] }}
+                <motion.img
+                    initial={{ y: -200, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
                     transition={{
-                        duration: 1,
-                        ease: 'easeInOut'
+                        type: 'spring',
+                        stiffness: 150,
+                        damping: 20
                     }}
                     className='absolute lg:top-[-10%] sm:top-[-10%] top-[-200px] lg:right-[30%] right-[20%] object-center object-contain md:h-[450px] h-[220px]'
-                    src="assets/images/mouse1.webp" alt="" />
+                    src="assets/images/mouse1.webp"
+                    alt=""
+                />
 
                 <div className='relative flex flex-col items-center self-end justify-center *:text-3xl gap-5'>
                     <div className='absolute top-[-500%] right-0 self-end flex flex-col gap-y-3 text-2xl *:cursor-pointer'>
