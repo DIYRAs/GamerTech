@@ -1,5 +1,12 @@
 @import 'tailwindcss';
 
+* {
+    transition: all;
+    transition-duration: .3s;
+}
+
 html {
     scrollbar-width: none;
+    /* width: 370px; */
+    background: #000;
 }

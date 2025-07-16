@@ -3,12 +3,14 @@ import List from '../../components/global/List'
 
 const Navbar = () => {
     return (
-        <div className='fixed top-0 left-0 z-50 flex items-center justify-between w-full h-16 px-10 py-5 text-white bg-white/10 backdrop-blur-md'>
+        <div className='fixed top-0 left-0 z-50 flex items-center justify-between w-full h-16 px-5 py-5 text-white lg:px-10 bg-white/10 backdrop-blur-md'>
             <p className='text-lg font-bold tracking-widest'>GamerTech</p>
 
-            <List lists={['Home', 'Mouse', 'Keyboard', 'Headset', 'Mousepad']}
-                listStyle={'row'}
-                gap={40} />
+            <div className='hidden lg:inline'>
+                <List lists={['Home', 'Mouse', 'Keyboard', 'Headset', 'Mousepad']}
+                    listStyle={'row'}
+                    gap={40} />
+            </div>
 
             <div className='flex gap-10'>
                 <div className='flex gap-2 place-items-center'>

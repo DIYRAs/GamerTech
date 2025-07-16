@@ -7,7 +7,7 @@ import Navbar from '../global/Navbar'
 
 const MainPage = () => {
   return (
-    <div className='bg-[#28272B]'>
+    <div className='bg-[#28272B] w-full'>
       <Navbar />
       <Hero />
       <Items />
